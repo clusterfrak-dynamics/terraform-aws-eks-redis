@@ -61,13 +61,12 @@ variable "app" {
 
 variable "subnets" {
   description = "List of VPC Subnet IDs for the cache subnet group"
-  type        = "list"
+  type        = list(string)
 }
 
 variable "redis_security_group" {
   description = "Security Groups from EKS Worker Node"
 }
-
 
 // Miscallenious settings
 
@@ -78,3 +77,4 @@ variable "redis_apply_immediately" {
 variable "redis_maintenance_window" {
   description = "Maintenance window"
 }
+
