@@ -27,6 +27,7 @@ variable "redis_transit_encryption_enabled" {
 
 variable "tags" {
   description = "Tags for redis nodes"
+  type        = any
   default     = {}
 }
 
