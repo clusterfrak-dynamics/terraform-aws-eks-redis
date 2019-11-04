@@ -1,5 +1,3 @@
-// ElastiCache Replication Group for Redis 
-
 variable "redis_cluster" {
   description = "Count of nodes in cluster"
 }
@@ -32,8 +30,6 @@ variable "tags" {
   default     = {}
 }
 
-// ElastiCache Network for Redis
-
 variable "vpc_id" {
   description = "VPC ID where subnets will be created (e.g. `vpc-aceb2723`)"
 }
@@ -47,16 +43,8 @@ variable "name" {
   description = "Name for the Redis replication group i.e. UserObject"
 }
 
-variable "owner" {
-  description = "Instance where is attached the Service previously mentionned"
-}
-
 variable "env" {
   description = "Kind of environment we are going to launch the Service"
-}
-
-variable "app" {
-  description = "Name of the application"
 }
 
 variable "subnets" {
@@ -68,8 +56,6 @@ variable "redis_security_group" {
   description = "Security Groups from EKS Worker Node"
 }
 
-// Miscallenious settings
-
 variable "redis_apply_immediately" {
   description = "Apply changes immediately"
 }
@@ -78,3 +64,7 @@ variable "redis_maintenance_window" {
   description = "Maintenance window"
 }
 
+variable "aws" {
+  type    = any
+  default = {}
+}
