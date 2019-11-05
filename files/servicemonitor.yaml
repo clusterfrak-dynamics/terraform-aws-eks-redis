@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: redis-exporter-servicemonitor
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: prometheus-redis-exporter
+  namespaceSelector:
+    matchNames:
+      - monitoring
+  endpoints:
+  - port: redis-exporter
+  sampleLimit: 50000
