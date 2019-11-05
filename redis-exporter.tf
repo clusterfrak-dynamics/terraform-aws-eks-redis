@@ -28,13 +28,13 @@ resource "helm_release" "redis_exporter" {
 }
 
 resource "kubernetes_config_map" "stunnel" {
-  count      = var.redis_exporter["enabled"] ? 1 : 0
+  count = var.redis_exporter["enabled"] ? 1 : 0
   metadata {
     name      = "${var.redis_id}-${var.env}-stunnel-config"
     namespace = "monitoring"
   }
 
-  data             = {
-    "stunnel.conf" = "${templatefile("templates/stunnel.tpl", { redis_host = var.redis_cluster_mode["enabled"] ? aws_elasticache_replication_group.redis_cluster[0].configuration_endpoint_address : aws_elasticache_replication_group.redis[0].primary_endpoint_address, redis_port =var.redis_port})}"
+  data = {
+    "stunnel.conf" = "${templatefile("templates/stunnel.tpl", { redis_host = var.redis_cluster_mode["enabled"] ? aws_elasticache_replication_group.redis_cluster[0].configuration_endpoint_address : aws_elasticache_replication_group.redis[0].primary_endpoint_address, redis_port = var.redis_port })}"
   }
 }

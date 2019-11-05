@@ -44,7 +44,7 @@ variable "redis_port" {
 }
 
 variable "redis_security_group_ids" {
-  type = list
+  type    = list
   default = []
 }
 
@@ -78,9 +78,9 @@ variable "tags" {
 }
 
 variable "redis_cluster_mode" {
-  type                      = any
-  default                   = {
-    enabled                 = false
+  type = any
+  default = {
+    enabled = false
   }
 }
 
@@ -95,7 +95,7 @@ variable "inject_secret_into_ns" {
 }
 
 variable "redis_exporter" {
-  type    = any
+  type = any
 }
 
 variable "redis_token_enabled" {
@@ -103,6 +103,6 @@ variable "redis_token_enabled" {
 }
 
 variable "redis_subnets" {
-  type = list
+  type    = list
   default = []
 }
