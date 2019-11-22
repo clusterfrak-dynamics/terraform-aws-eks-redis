@@ -72,6 +72,6 @@ resource "kubernetes_secret" "redis_secrets" {
     REDIS_CONFIGURATION_ENDPOINT_ADDRESS = var.redis_cluster_mode["enabled"] ? aws_elasticache_replication_group.redis_cluster[0].configuration_endpoint_address : aws_elasticache_replication_group.redis[0].configuration_endpoint_address
     REDIS_MEMBER_CLUSTERS                = join(",", var.redis_cluster_mode["enabled"] ? aws_elasticache_replication_group.redis_cluster[0].member_clusters : aws_elasticache_replication_group.redis[0].member_clusters)
     REDIS_PORT                           = var.redis_port
-    REDIS_AUTH                           = var.redis_token_enabled ? random_uuid.redis_token[0].result : null
+    REDIS_AUTH                           = var.redis_token_enabled ? random_uuid.redis_token[0].result : ""
   }
 }
