@@ -10,6 +10,10 @@ provider "aws" {
   region = var.aws["region"]
 }
 
+provider "kubernetes" {
+  config_path = var.eks["kubeconfig_path"]
+}
+
 provider "helm" {
   install_tiller                  = true
   service_account                 = "tiller"

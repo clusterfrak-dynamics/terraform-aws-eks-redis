@@ -15,6 +15,6 @@ output "redis_port" {
 }
 
 output "redis_token" {
-  value = var.redis_token_enabled ? random_uuid.redis_token[0].result : null
+  value     = var.redis_token_enabled ? random_uuid.redis_token[0].result : null
   sensitive = true
 }
